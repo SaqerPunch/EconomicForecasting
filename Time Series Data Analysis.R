@@ -2,7 +2,6 @@ install.packages("fredr")
 library(fredr)
 fredr_set_key('0c7ff83034c0d6c213a7c0faa98d633a')
 
-#Question 1
 data=fredr(
   series_id = "LNU01375379", 
   observation_start = as.Date("2010-01-01"),
@@ -13,7 +12,6 @@ LFPR =ts(data$value, frequency=12, start=c(2010,01))
 plot(LFPR)
 acf(LFPR)
 
-#Question 2
 decom_LFPR = decompose(LFPR, type = "multiplicative")
 plot(decom_LFPR)
 trnd = decom_LFPR$trend
@@ -23,6 +21,6 @@ trnd
 season
 rmdr
 
-#Question 4
+
 stl_LFPR = stl(LFPR, s.window = 1000, t.window = 1000)
 plot(stl_LFPR)

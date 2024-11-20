@@ -3,21 +3,15 @@ install.packages("forecast")
 library(quantmod)
 library(forecast)
 
-#Question 1
-
 getSymbols("TSLA" , from = "2022-09-01")
 tesla_cls = TSLA$TSLA.Close
 plot(tesla_cls, main = "Tesla Closing Price")
 
-#Question 2
 tesla_mm = meanf(tesla_cls,h=6)
 plot(tesla_mm)
 
-#Question 3
 tesla_drift = rwf(tesla_cls,h=6, drift = TRUE)
 plot(tesla_drift)
-
-#Question 4
 
 #Confidence Bands
 tesla_mm
